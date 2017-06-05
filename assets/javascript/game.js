@@ -9,24 +9,13 @@
 var options = ["beyonce", "flawless", "slay", "lemonade",];
 
 // Randomly choose a word from options variable to use in the game
-var computerRandom = options[Math.floor(Math.random()*options.length)];
-
-var initialOptions = [];
-
-for(var i = 0; i < computerRandom.length; i++) {
-  initialOptions[i] = "_";
-}
-
-var remainingLetters = computerRandom.length;
-
 
 
 
 //sets a new variable to call empty divs and then fill with new information for functions below
 var updatedWins = document.getElementById("wins").innerHTML=0;
 
-var updatedComputerChoice = document.getElementById("computerChoice");
-updatedComputerChoice.innerHTML=initialOptions;
+
 
 
 var updatedGuessesLeft = document.getElementById("guessesLeft");
@@ -41,7 +30,21 @@ updatedLettersGuessed.innerHTML="";
 
 // ---------------------------------------- Functions ----------------------------------
 
-// maybe move updatedComputerChoice variable here
+// this function randomly selects an initial word, changes it to dashes, then displays on page
+
+function randomize (){
+
+  var computerRandom = options[Math.floor(Math.random()*options.length)];
+  var remainingLetters = computerRandom.length;
+  var initialOptions = [];
+  for(var i = 0; i < computerRandom.length; i++) {
+    initialOptions[i] = "  ___  ";
+    }
+  var updatedComputerChoice = document.getElementById("computerChoice");
+      updatedComputerChoice.innerHTML=initialOptions;
+}
+
+
 
 // show word as only dashes
 
@@ -84,3 +87,5 @@ updatedLettersGuessed.innerHTML="";
 
 
 //------------------------------------------------Processes
+
+randomize ();
