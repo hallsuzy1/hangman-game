@@ -1,4 +1,5 @@
 
+
 //----------------------------------- Variables --------------------------------------
 
 // Array of words spelled out for hangman game
@@ -7,23 +8,25 @@
 // Array list of options for hangman game
 var options = ["beyonce", "flawless", "slay", "lemonade",];
 
+// Randomly choose a word from options variable to use in the game
+var computerRandom = options[Math.floor(Math.random()*options.length)];
+
 var initialOptions = [];
 
-for(var i = 0; i < options.length; i++) {
+for(var i = 0; i < computerRandom.length; i++) {
   initialOptions[i] = "_";
 }
 
-var remainingLetters = options.length;
+var remainingLetters = computerRandom.length;
 
-// Randomly choose a word from options variable to use in the game
-var computerRandom = options[Math.floor(Math.random()*options.length)];
+
 
 
 //sets a new variable to call empty divs and then fill with new information for functions below
 var updatedWins = document.getElementById("wins").innerHTML=0;
 
 var updatedComputerChoice = document.getElementById("computerChoice");
-updatedComputerChoice.innerHTML=computerRandom;
+updatedComputerChoice.innerHTML=initialOptions;
 
 
 var updatedGuessesLeft = document.getElementById("guessesLeft");
@@ -46,21 +49,21 @@ updatedLettersGuessed.innerHTML="";
 // run this function whenever user presses a key, to record and document user guess
 // document.onkeyup = function(event) {
 
-function wordLength () {
-  return this.options.length;
-}
-
-function initialWord() {
-  var dashes = " ";
-  for (var i=0; i < this.wordLength(); i++) {
-    dashes + "_";
-  }
-
-  this.updatedComputerChoice = dashes;
-  return dashes;
-}
-
-initialWord();
+// function wordLength () {
+//   return this.options.length;
+// }
+//
+// function initialWord() {
+//   var dashes = " ";
+//   for (var i=0; i < this.wordLength(); i++) {
+//     dashes + "_";
+//   }
+//
+//   this.updatedComputerChoice = dashes;
+//   return dashes;
+// }
+//
+// initialWord();
 
 //
 //   //determine which key was pressed
