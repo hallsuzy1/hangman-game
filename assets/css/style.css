@@ -1,0 +1,39 @@
+body {
+  background: url("../images/flawless.png");
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h3 {
+  font-size: 20px;
+  font-family: "Cambria", sans-serif;
+  line-height: 25px;
+  color: #959595;
+}
+
+
+.image {
+  width: 48%;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+.container {
+  margin: auto;
+  width: 70%;
+  background: #202020;
+}
+
+.leftContainer {
+  width: 35%;
+  display: inline;
+  padding: 5px;
+}
+
+.rightContainer {
+  width: 35%;
+  display: inline-block;
+  padding: 5px;
+
+}
