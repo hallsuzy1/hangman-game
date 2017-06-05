@@ -7,6 +7,13 @@
 // Array list of options for hangman game
 var options = ["beyonce", "flawless", "slay", "lemonade",];
 
+var initialOptions = [];
+
+for(var i = 0; i < options.length; i++) {
+  initialOptions[i] = "_";
+}
+
+var remainingLetters = options.length;
 
 // Randomly choose a word from options variable to use in the game
 var computerRandom = options[Math.floor(Math.random()*options.length)];
