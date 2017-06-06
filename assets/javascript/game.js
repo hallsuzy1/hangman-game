@@ -39,13 +39,19 @@ function randomize (){
 
 
   document.onkeyup = function(event) {
-      var letterPressed = String.fromCharCode(event.key).toLowerCase();
+      var letterPressed = String.fromCharCode(event.keyCode).toLowerCase();
+                console.log(letterPressed);
       for(var i=0; i<computerRandom.length; i++)
-      if (letterPressed === computerRandom[i]) {
-          letterPressed = initialOptions[i];
+      console.log("counter is " + i);
+      console.log("type of computerRandom is: " + typeof computerRandom)
+      console.log("computerRandom letter is " + computerRandom.charAt(i));
+      if (letterPressed === computerRandom.charAt(i)) {
+          var removed = initialOptions.splice(i,1,letterPressed);
+          conosle.log("if processed!")
+          console.log(removed);
       } else {
         var newDiv = document.getElementById("guessesLeft");
-        newDiv.innerHTML = "hi Suzy";
+        newDiv.innerHTML = letterPressed;
         updatedLettersGuessed.appendChild(newDiv);
         updatedGuessesLeft--;
       }
