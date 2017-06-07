@@ -50,9 +50,9 @@ function randomize (){
           conosle.log("if processed!")
           console.log(removed);
       } else {
-        var newDiv = document.getElementById("guessesLeft");
+        var newDiv = document.createElement("div");
         newDiv.innerHTML = letterPressed;
-        updatedLettersGuessed.appendChild(newDiv);
+        updatedLettersGuessed.append(newDiv);
         updatedGuessesLeft--;
       }
   }
