@@ -43,11 +43,14 @@ function randomize (){
   document.onkeyup = function(event) {
       var letterPressed = String.fromCharCode(event.keyCode).toLowerCase(); // this captures the key pressed and saves as a variable
                 console.log(letterPressed);
-                w--;  // this counts down the number of guesses
-                updatedGuessesLeft.innerHTML=w;  // this updates the countdown on the page
+            w--;  // this counts down the number of guesses
+            updatedGuessesLeft.innerHTML=w;  // this updates the countdown on the page
+      var newDiv = document.createElement("div");
+            newDiv.innerHTML = letterPressed;
+            updatedLettersGuessed.append(newDiv);
       if( w===0) {
         alert("Game is over, refresh the page to play again");
-      }          
+      }
 
       for(var j=0; j<computerRandom.length; j++){
       // console.log("counter is " + j);
@@ -64,9 +67,9 @@ function randomize (){
           // console.log("if processed!")
           // console.log("removed" + removed);
       } else {
-        var newDiv = document.createElement("div");
-        newDiv.innerHTML = letterPressed;
-        updatedLettersGuessed.append(newDiv);
+        // var newDiv = document.createElement("div");
+        // newDiv.innerHTML = letterPressed;
+        // updatedLettersGuessed.append(newDiv);
 
       }
     }
