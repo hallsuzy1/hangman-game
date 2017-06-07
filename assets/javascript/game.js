@@ -41,39 +41,44 @@ function randomize (){
 
 
   document.onkeyup = function(event) {
+
       var letterPressed = String.fromCharCode(event.keyCode).toLowerCase(); // this captures the key pressed and saves as a variable
-                console.log(letterPressed);
+            console.log(letterPressed);
             w--;  // this counts down the number of guesses
             updatedGuessesLeft.innerHTML=w;  // this updates the countdown on the page
+
       var newDiv = document.createElement("div");
             newDiv.innerHTML = letterPressed;
             updatedLettersGuessed.append(newDiv);
+
       if( w===0) {
         alert("Game is over, refresh the page to play again");
       }
 
       for(var j=0; j<computerRandom.length; j++){
-      // console.log("counter is " + j);
-      // console.log("type of computerRandom is: " + typeof computerRandom)
-      // console.log("computerRandom letter is " + computerRandom.charAt(j));
+      console.log("counter is " + j);
+      console.log("type of computerRandom is: " + typeof computerRandom)
+      console.log("computerRandom letter is " + computerRandom.charAt(j));
       console.log("word is:" + computerRandom);
+      var newWord = computerRandom.replace(j, letterPressed);
       if (letterPressed === computerRandom.charAt(j)) {
           // j = letterPressed;
-        updatedComputerChoice.innerHTML=initialOptions[j];
+        newWord.computerRandom;
+        } else {
+
+          computerRandom[j] = "  ___  ";
+          }
+
+        // updatedComputerChoice.innerHTML=initialOptions[j];
 
           console.log("charAt" + computerRandom.charAt(j));
           console.log("updated comp choice variable:" + updatedComputerChoice);
           // var removed = initialOptions.splice(j,1,letterPressed);
           // console.log("if processed!")
           // console.log("removed" + removed);
-      } else {
-        // var newDiv = document.createElement("div");
-        // newDiv.innerHTML = letterPressed;
-        // updatedLettersGuessed.append(newDiv);
-
       }
     }
-  }
+
 
 // run this function whenever user presses a key, to record and document user guess
 
