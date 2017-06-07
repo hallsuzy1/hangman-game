@@ -41,11 +41,14 @@ function randomize (){
 
 
   document.onkeyup = function(event) {
-      var letterPressed = String.fromCharCode(event.keyCode).toLowerCase();
+      var letterPressed = String.fromCharCode(event.keyCode).toLowerCase(); // this captures the key pressed and saves as a variable
                 console.log(letterPressed);
-                w--;
-                updatedGuessesLeft.innerHTML=w;
-              console.log(w);
+                w--;  // this counts down the number of guesses
+                updatedGuessesLeft.innerHTML=w;  // this updates the countdown on the page
+      if( w===0) {
+        alert("Game is over, refresh the page to play again");
+      }          
+
       for(var j=0; j<computerRandom.length; j++){
       // console.log("counter is " + j);
       // console.log("type of computerRandom is: " + typeof computerRandom)
