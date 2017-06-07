@@ -9,8 +9,10 @@ var options = ["beyonce", "flawless", "slay", "lemonade",];
 //sets global variables to call empty divs and then fill with new information for functions below
 var updatedWins = document.getElementById("wins").innerHTML=0;
 
+var w = 9;
 var updatedGuessesLeft = document.getElementById("guessesLeft");
-updatedGuessesLeft.innerHTML=9;
+updatedGuessesLeft.innerHTML=w;
+
 
 var updatedLettersGuessed = document.getElementById("lettersGuessed");
 updatedLettersGuessed.innerHTML="";
@@ -41,22 +43,31 @@ function randomize (){
   document.onkeyup = function(event) {
       var letterPressed = String.fromCharCode(event.keyCode).toLowerCase();
                 console.log(letterPressed);
-      for(var i=0; i<computerRandom.length; i++)
-      console.log("counter is " + i);
-      console.log("type of computerRandom is: " + typeof computerRandom)
-      console.log("computerRandom letter is " + computerRandom.charAt(i));
-      if (letterPressed === computerRandom.charAt(i)) {
-          var removed = initialOptions.splice(i,1,letterPressed);
-          conosle.log("if processed!")
-          console.log(removed);
+                w--;
+                updatedGuessesLeft.innerHTML=w;
+              console.log(w);
+      for(var j=0; j<computerRandom.length; j++){
+      // console.log("counter is " + j);
+      // console.log("type of computerRandom is: " + typeof computerRandom)
+      // console.log("computerRandom letter is " + computerRandom.charAt(j));
+      console.log("word is:" + computerRandom);
+      if (letterPressed === computerRandom.charAt(j)) {
+          // j = letterPressed;
+        updatedComputerChoice.innerHTML=initialOptions[j];
+
+          console.log("charAt" + computerRandom.charAt(j));
+          console.log("updated comp choice variable:" + updatedComputerChoice);
+          // var removed = initialOptions.splice(j,1,letterPressed);
+          // console.log("if processed!")
+          // console.log("removed" + removed);
       } else {
         var newDiv = document.createElement("div");
         newDiv.innerHTML = letterPressed;
         updatedLettersGuessed.append(newDiv);
-        updatedGuessesLeft--;
-      }
-  }
 
+      }
+    }
+  }
 
 // run this function whenever user presses a key, to record and document user guess
 
