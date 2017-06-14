@@ -36,14 +36,14 @@ function randomize (){
     }
     s=initialOptions.join(" ");
       updatedComputerChoice.innerHTML=s;
-
+console.log("inititilaly initialOptions is this...." + initialOptions);
 }
 
 
   document.onkeyup = function(event) {
 
       var letterPressed = String.fromCharCode(event.keyCode).toLowerCase(); // this captures the key pressed and saves as a variable
-            console.log(letterPressed);
+            console.log("letter pressed is" + letterPressed);
             w--;  // this counts down the number of guesses
             updatedGuessesLeft.innerHTML=w;  // this updates the countdown on the page
 
@@ -56,28 +56,71 @@ function randomize (){
       }
 
       for(var j=0; j<computerRandom.length; j++){
-      console.log("counter is " + j);
-      console.log("type of computerRandom is: " + typeof computerRandom)
-      console.log("computerRandom letter is " + computerRandom.charAt(j));
-      console.log("word is:" + computerRandom);
-      var newWord = computerRandom.replace(j, letterPressed);
+
+        console.log("counter is " + j);
+        console.log("type of computerRandom is: " + typeof computerRandom)
+        console.log("computerRandom letter is " + computerRandom.charAt(j));
+        console.log("word is:" + computerRandom);
+                console.log("initial options at current index is: " + initialOptions[j]);
+      //  var newWord = computerRandom.replace(j, letterPressed);
       if (letterPressed === computerRandom.charAt(j)) {
+        console.log("Letter match!");
+
+
+        //index of 2 in initialOptions array = letterPressed
+        // initialOptions[j] = letterPressed
+
+//         var index = items.indexOf(3452);
+//
+// if (index !== -1) {
+//     items[index] = 1010;
+// }
+// trying with splice
+
+console.log("replaced" + replaced);
+// for(var i = 0; i < computerRandom.length; i++) {
+//   initialOptions[i] = "  ___  ";
+  var replaced = initialOptions.splice(j,1, letterPressed);
+  }
+  s=initialOptions.join(" ");
+    updatedComputerChoice.innerHTML=s;
+console.log("now initialOptions is this...." + initialOptions);
+}
+
+
+// trying to remove dash and replace with letterPressed
+        // var index = computerRandom.indexOf(letterPressed);
+        // console.log("index is" + index);
+        // if (index !== -1) {
+        //   initialOptions[index] = letterPressed;
+        //   console.log("initial Options ..." + initialOptions);
+        //   document.getElementById("computerChoice").innerHTML = initialOptions;
+
+// document.getElementById("p1").innerHTML = "New text!";
+
+          // console.log("Initital options index" + initialOptions[index]);
+          // initialOptions.replace(initialOptions[index], letterPressed);
+        };
+
+        // var updated = initialOptions.indexOf(letterPressed);
+        // updated  = letterPressed;
+// dot replace
+
+        // var nextUpdated = computerRandom.indexOf(!letterPressed);
+        //    nextUpdated = "  ___  ";
+
+
           // j = letterPressed;
-        newWord.computerRandom;
-        } else {
-
-          computerRandom[j] = "  ___  ";
-          }
-
+        // newWord.computerRandom;
+        // }
         // updatedComputerChoice.innerHTML=initialOptions[j];
 
-          console.log("charAt" + computerRandom.charAt(j));
-          console.log("updated comp choice variable:" + updatedComputerChoice);
-          // var removed = initialOptions.splice(j,1,letterPressed);
-          // console.log("if processed!")
-          // console.log("removed" + removed);
-      }
-    }
+      //     console.log("charAt" + computerRandom.charAt(j));
+      //     console.log("updated comp choice variable:" + updatedComputerChoice);
+      //     // var removed = initialOptions.splice(j,1,letterPressed);
+      //     // console.log("if processed!")
+      //     // console.log("removed" + removed);
+      // }
 
 
 // run this function whenever user presses a key, to record and document user guess
@@ -145,3 +188,4 @@ function randomize (){
 
 randomize ();
 // gamePlay ();
+// };
