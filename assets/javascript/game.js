@@ -23,7 +23,7 @@ var initialOptions = [];
 var updatedWord = [];
 var updatedComputerChoice = document.getElementById("computerChoice");
 var s;
-
+var dashes =  "  ___  "
 
 // ---------------------------------------- Functions ----------------------------------
 
@@ -32,11 +32,13 @@ var s;
 function randomize (){
 
   for(var i = 0; i < computerRandom.length; i++) {
-    initialOptions[i] = "  ___  ";
+
+    initialOptions[i] = dashes;
     }
     s=initialOptions.join(" ");
       updatedComputerChoice.innerHTML=s;
 console.log("inititilaly initialOptions is this...." + initialOptions);
+
 }
 
 
@@ -52,7 +54,10 @@ console.log("inititilaly initialOptions is this...." + initialOptions);
             updatedLettersGuessed.append(newDiv);
 
       if( w===0) {
-        alert("Game is over, refresh the page to play again");
+        alert("Game is over, time to play again");
+        w = 9;
+        document.getElementById("lettersGuessed").innerHTML = "";
+        randomize();
       }
 
       for(var j=0; j<computerRandom.length; j++){
@@ -85,8 +90,36 @@ console.log("replaced" + replaced);
   s=initialOptions.join(" ");
     updatedComputerChoice.innerHTML=s;
 console.log("now initialOptions is this...." + initialOptions);
+
+
+// if(initialOptions[i] == dashes){
+//   alert ("you win");
+// }
+
+
+if (initialOptions.indexOf(dashes) < 0) {
+  alert("you win");
+  document.getElementById("wins").innerHTML ++;
+  updatedWins++;
+  w = 9;
+  document.getElementById("lettersGuessed").innerHTML = "";
+  randomize();
+}
+// var matchesCount = initialOptions.matchesCount("_").length - 1;
+// console.log(matchesCount);
 }
 
+
+
+// console.log("at end s is" + s);
+// console.log("at end computer random is" + computerRandom);
+//
+//  if (initialOptions.charAt(" ___ ") == -1) {
+//    alert ("you win");
+//  }
+
+ // if (letterPressed === computerRandom.charAt(j)) {
+ //   console.log("Letter match!");
 
 // trying to remove dash and replace with letterPressed
         // var index = computerRandom.indexOf(letterPressed);
